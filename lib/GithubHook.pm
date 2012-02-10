@@ -42,10 +42,7 @@ prefix '/notify' => sub {
 
         # Read the configuration for that repo
         my $repo_config = $config->{$repo->{name}};
-        if (not defined $repo_config) {
-            print NO_CONFIG_MESSAGE;
-            #exit 0;
-        } else {
+        if (defined $repo_config) {
             eval {
                 system $repo_config->{run};
             };
