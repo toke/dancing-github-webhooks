@@ -7,9 +7,13 @@ our $VERSION = '0.1';
 use constant UNSUPPORTED_MEDIA_TYPE => '415';
 
 my $config = {
-    "toke.github.com" => {
-        run => "/home/toke/bin/updateblog.sh",
+    "toke.de" => {
+        run => "/srv/staging/bin/updateblog.sh toke.de",
     },
+    "tor.toke.de" => {
+        run => "/srv/staging/bin/updateblog.sh tor.toke.de",
+    },
+
 };
 
 set content_type 'text/plain';
