@@ -40,10 +40,10 @@ prefix '/notify' => sub {
         my $repo;
         if (defined $repo_config) {
             $repo = Git->repository(Directory => $repo_config->{repository});
-            my $lastrev = $repo->command_oneline( [ 'rev-list', '--all' ], STDERR => 0 );
+            my ($type, $lastrev) = split(" ", $repo->command_oneline( [ 'log', '-n1' ], STDERR => 0 ));
             header 'Content-Type' => 'text/json';
             status 200;
-            return to_json({latest_rev => $lastrev});
+            return to_json({latest_rev => $lastrev, type => $type});
         } else {
             status 'not_found';
         }
