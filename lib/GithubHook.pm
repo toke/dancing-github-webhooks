@@ -14,6 +14,7 @@ my $config = {
     },
     "tor.toke.de" => {
         run => "/srv/staging/bin/updateblog.sh tor.toke.de",
+        repository => "/srv/staging/tor.toke.de",
     },
 
 };
