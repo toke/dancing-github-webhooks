@@ -30,10 +30,11 @@ prefix '/notify' => sub {
     };
 
     get '/:project' => sub {
+        header 'Cache-Control' => 'no-cache';
         if (not defined $config->{params->{project}}) {
+            header 'Content-Type' => 'text/html';
             status 'not_found';
-            return "No such project:
-            ".params->{project}."\n";
+            return "<h1>No such project: ".params->{project}."</h1>\n";
         }
         # Read the configuration for that repo
         my $repo_config = $config->{params->{project}};
