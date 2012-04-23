@@ -3,12 +3,12 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-    NAME                => 'receivehook',
-    AUTHOR              => q{YOUR NAME <youremail@example.com>},
+    NAME                => 'dancing-github-webhooks',
+    AUTHOR              => q{Thomas Kerpe <toke@toke.de>},
     VERSION_FROM        => 'lib/GithubHook.pm',
-    ABSTRACT            => 'YOUR APPLICATION ABSTRACT',
+    ABSTRACT            => 'Github webhook endpoint',
     ($ExtUtils::MakeMaker::VERSION >= 6.3002
-      ? ('LICENSE'=> 'perl')
+      ? ('LICENSE' => 'perl')
       : ()),
     PL_FILES            => {},
     PREREQ_PM => {
