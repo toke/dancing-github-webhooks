@@ -22,7 +22,7 @@ prefix '/notify' => sub {
         my $repo_config = config->{projects}->{params->{project}};
         my $repo;
         if (defined $repo_config) {
-            $repo = Git->repository(Directory => $repo_config->{repository});
+            $repo = App::gh::Git->repository(Directory => $repo_config->{repository});
             my ($type, $lastrev) = split(" ", $repo->command_oneline( [ 'log', '-n1' ], STDERR => 0 ));
             header 'Content-Type' => 'text/json';
             status 200;
