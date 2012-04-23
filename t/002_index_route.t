@@ -6,5 +6,5 @@ use warnings;
 use GithubHook;
 use Dancer::Test;
 
-route_exists [GET => '/'], 'a route handler is defined for /';
-response_status_is ['GET' => '/'], 404, 'response status is 200 for /';
+route_exists [GET => '/notify/test'], 'a route handler is defined for /';
+response_status_is ['GET' => '/'], 404, 'response status is 400 for /';
