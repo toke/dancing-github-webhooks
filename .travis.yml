@@ -5,4 +5,4 @@ perl:
     - "5.10"
 before_install:
     - sudo apt-get update
-    - sudo apt-get install git-core
+    - sudo apt-get install git
