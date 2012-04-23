@@ -15,3 +15,10 @@ show_errors: 0
 # cache route resolution for maximum performance
 route_cache: 1
 
+projects:
+    "toke.de":
+        run: "/srv/staging/bin/updateblog.sh toke.de"
+        repository: "/srv/staging/toke.de"
+    "tor.toke.de":
+        run: "/srv/staging/bin/updateblog.sh tor.toke.de"
+        repository: "/srv/staging/tor.toke.de"
