@@ -13,22 +13,19 @@ prefix '/notify' => sub {
 
     get '/:project' => sub {
         header 'Cache-Control' => 'no-cache';
-        if (not defined config->{projects}->{params->{project}}) {
-            header 'Content-Type' => 'text/json';
-            status 'not_found';
-            return '{"error": "Project '.params->{project}.' not found"}';
-        }
-        # Read the configuration for that repo
         my $repo_config = config->{projects}->{params->{project}};
-        my $repo;
-        if (defined $repo_config) {
+        if (defined $repo_config){
+            # Read the configuration for that repo
+            my $repo;
             $repo = App::gh::Git->repository(Directory => $repo_config->{repository});
             my ($type, $lastrev) = split(" ", $repo->command_oneline( [ 'log', '-n1' ], STDERR => 0 ));
             header 'Content-Type' => 'text/json';
             status 200;
             return to_json({latest_rev => $lastrev, type => $type});
         } else {
+            header 'Content-Type' => 'text/json';
             status 'not_found';
+            return '{"error": "Project '.params->{project}.' not found"}';
         }
     };
 
