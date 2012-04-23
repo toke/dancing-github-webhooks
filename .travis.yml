@@ -1,7 +1,5 @@
 language: perl
 perl:
     - "5.14"
-    - "5.12"
-    - "5.10"
-
-env: PERL5LIB=$PERL5LIB:/usr/share/perl5/
+before_script:
+    - sudo apt-get install git-core
