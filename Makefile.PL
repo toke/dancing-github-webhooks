@@ -18,5 +18,5 @@ WriteMakefile(
         'Dancer'     => 1.3091,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean               => { FILES => 'receivehook-*' },
+    clean               => { FILES => 'dancing-github-webhooks-*' },
 );
