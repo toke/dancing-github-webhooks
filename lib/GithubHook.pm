@@ -1,6 +1,6 @@
 package GithubHook;
 use Dancer ':script';
-use Git;
+use App::gh::Git;
 
 our $VERSION = '0.1';
 
