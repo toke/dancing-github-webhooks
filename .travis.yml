@@ -3,6 +3,5 @@ perl:
     - "5.14"
     - "5.12"
     - "5.10"
-before_install:
-    - sudo apt-get update
-    - sudo apt-get install git
+
+env: PERL5LIB=/usr/share/perl5/
