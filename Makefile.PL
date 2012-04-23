@@ -14,6 +14,7 @@ WriteMakefile(
     PREREQ_PM => {
         'Test::More' => 0,
         'YAML'       => 0,
+        'Git'        => 0,
         'Dancer'     => 1.3091,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
