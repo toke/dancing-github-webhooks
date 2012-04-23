@@ -39,3 +39,10 @@ template: "simple"
 #     start_tag: '[%'
 #     end_tag:   '%]'
 
+projects:
+    "toke.de":
+        run: "/srv/staging/bin/updateblog.sh toke.de"
+        repository: "/srv/staging/toke.de"
+    "tor.toke.de":
+        run: "/srv/staging/bin/updateblog.sh tor.toke.de"
+        repository: "/srv/staging/tor.toke.de"
