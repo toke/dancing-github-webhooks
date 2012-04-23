@@ -4,4 +4,4 @@ perl:
     - "5.12"
     - "5.10"
 
-env: PERL5LIB=/usr/share/perl5/
+env: PERL5LIB=$PERL5LIB:/usr/share/perl5/
