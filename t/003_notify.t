@@ -3,7 +3,6 @@ use warnings;
 
 BEGIN {
     use Test::More tests => 5;
-    use namespace::clean qw( pass );
 }
 
 #use Dancer qw( :syntax );
