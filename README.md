@@ -10,6 +10,8 @@ when a repository is changed.
      cpan Dancer
      perl bin/app.pl
 
+[![Build Status](https://secure.travis-ci.org/toke/dancing-github-webhooks.png)](http://travis-ci.org/toke/dancing-github-webhooks)
+
 ## Deployment
 I use Perlbal...
 `cpan IO::AIO Perlbal`
