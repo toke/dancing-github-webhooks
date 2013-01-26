@@ -20,11 +20,11 @@ prefix '/notify' => sub {
             my $repo;
             $repo = App::gh::Git->repository(Directory => $repo_config->{repository});
             my ($type, $lastrev) = split(" ", $repo->command_oneline( [ 'log', '-n1' ], STDERR => 0 ));
-            header 'Content-Type' => 'text/json';
+            header 'Content-Type' => 'application/json';
             status 200;
             return to_json({latest_rev => $lastrev, type => $type});
         } else {
-            header 'Content-Type' => 'text/json';
+            header 'Content-Type' => 'application/json';
             status 'not_found';
             return '{"error": "Project '.params->{project}.' not found"}';
         }
