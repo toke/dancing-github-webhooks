@@ -13,24 +13,28 @@ prefix '/notify' => sub {
 
     get '/:project' => sub {
         header 'Cache-Control' => 'no-cache';
+
+        # Read the configuration for that repo
         my $repo_config = config->{projects}->{params->{project}};
         if (defined $repo_config){
-            # Read the configuration for that repo
             my $repo;
             $repo = App::gh::Git->repository(Directory => $repo_config->{repository});
             my ($type, $lastrev) = split(" ", $repo->command_oneline( [ 'log', '-n1' ], STDERR => 0 ));
-            header 'Content-Type' => 'text/json';
+            header 'Content-Type' => 'application/json';
             status 200;
             return to_json({latest_rev => $lastrev, type => $type});
         } else {
-            header 'Content-Type' => 'text/json';
+            header 'Content-Type' => 'application/json';
             status 'not_found';
             return '{"error": "Project '.params->{project}.' not found"}';
         }
     };
 
     post '/:project' => sub {
-        if (not defined config->{projects}->{params->{project}}) {
+
+        # Read the configuration for that repo
+        my $repo_config = config->{projects}->{params->{project}};
+        if (not defined $repo_config) {
             status 'not_found';
             return "No such project:
             ".params->{project}."\n";
@@ -46,9 +50,7 @@ prefix '/notify' => sub {
         my $json = from_json($payload);
         my $repo = $json->{repository};
 
-        # Read the configuration for that repo
-        my $repo_config = config->{projects}->{params->{project}};
-        if (defined $repo_config) {
+        if (defined $repo_config && defined $repo_config->{run}) {
             eval {
                 system $repo_config->{run};
             };
