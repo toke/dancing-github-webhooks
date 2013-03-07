@@ -23,6 +23,7 @@ use Dancer;
 
 
 get '/foo' => sub {
+        header 'Content-Type' => 'application/json';
         sprintf ('{"remote_ip": "%s"}', request->env()->{HTTP_X_FORWARDED_FOR});
 };
 
