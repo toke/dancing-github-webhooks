@@ -22,7 +22,7 @@ package IpAddress;
 use Dancer;
 
 
-get '/foo' => sub {
+get '/ip' => sub {
         header 'Content-Type' => 'application/json';
         sprintf ('{"remote_ip": "%s"}', request->env()->{HTTP_X_FORWARDED_FOR});
 };
