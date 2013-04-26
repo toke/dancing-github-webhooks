@@ -9,6 +9,7 @@ when a repository is changed. Used for http://toke.de the code of this website i
 ## Installation
 
      cpan Dancer
+     cpan App::gh::Git
      perl bin/app.pl
 
 [![Build Status](https://secure.travis-ci.org/toke/dancing-github-webhooks.png)](http://travis-ci.org/toke/dancing-github-webhooks)
